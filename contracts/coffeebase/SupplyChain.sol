@@ -198,7 +198,7 @@ contract SupplyChain is RetailerRole, ConsumerRole, DistributorRole, FarmerRole,
   // Call modifier to check if upc has passed previous supply chain stage
   processed(_upc)
   // Call modifier to verify caller of this function
-  verifyCaller(_owner)
+  verifyCaller(items[_upc].ownerID)
   {
     // Update the appropriate fields
     items[_upc].itemState = State.Packed;
@@ -211,7 +211,7 @@ contract SupplyChain is RetailerRole, ConsumerRole, DistributorRole, FarmerRole,
   // Call modifier to check if upc has passed previous supply chain stage
   packed(_upc)
   // Call modifier to verify caller of this function
-  verifyCaller(_owner)
+  verifyCaller(items[_upc].ownerID)
   {
     // Update the appropriate fields
     items[_upc].productPrice = _price;
