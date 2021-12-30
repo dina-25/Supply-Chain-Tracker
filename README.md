@@ -102,11 +102,11 @@ truffle migrate --network rinkeby
 - truffle-plugin-verify: "^0.5.20"<br>
   Verify deployed Contracts on Rinkeby Test-network<br>
 - truffle-hdwallet-provider: "^1.0.27" <br>
-  HDWalletProvider for Infura deployment
+  HDWalletProvider for Infura deployment<br>
 - truffle : "5.4.22"<br>
-  Framework for deployment of smart contracts
-- Web3js: "1.2.1"
-  Ethereum Javascript API
+  Framework for deployment of smart contracts<br>
+- Web3js: "1.2.1"<br>
+  Ethereum Javascript API<br>
 
 # Versions
 - Truffle v5.4.22 <br>
