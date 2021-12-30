@@ -51,9 +51,11 @@ contract('SupplyChain', function(accounts) {
 
 
         // Watch the emitted event Harvested()
+
         var event = supplyChain.Harvested({}, (err, event) => { eventEmitted = true })
 
         // Mark an item as Harvested by calling function harvestItem()
+        await supplyChain.addFarmer(originFarmerID);
         await supplyChain.harvestItem(
             upc,
             originFarmerID,
@@ -90,14 +92,17 @@ contract('SupplyChain', function(accounts) {
         // Watch the emitted event Processed()
         var event = supplyChain.Processed({}, (err, event) => { eventEmitted = true });
         // Mark an item as Processed by calling function processtItem()
-        await supplyChain.processItem(upc)
+        await supplyChain.processItem(upc, { from: originFarmerID });
 
         // Retrieve the just now saved item from blockchain by calling function fetchItem()
 
         const resultBufferTwo = await supplyChain.fetchItemBufferTwo.call(upc);
+        const resultBufferOne = await supplyChain.fetchItemBufferOne.call(upc);
 
         // Verify the result set
         assert.equal(resultBufferTwo[5], 1, 'Error: Invalid State')
+        assert.equal(resultBufferOne[2], originFarmerID, 'Invalid Owner ID')
+        assert.equal(resultBufferOne[3], originFarmerID, 'Invalid Farmer ID')
         assert.equal(eventEmitted, true, 'Invalid event emitted')
     })
 
@@ -159,6 +164,7 @@ contract('SupplyChain', function(accounts) {
 
 
         // Mark an item as Sold by calling function buyItem()
+        await supplyChain.addDistributor(distributorID);
         await supplyChain.buyItem(upc, {
             from: distributorID,
             value: productPrice
