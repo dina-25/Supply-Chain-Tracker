@@ -105,6 +105,8 @@ truffle migrate --network rinkeby
   HDWalletProvider for Infura deployment
 - truffle : "5.4.22"<br>
   Framework for deployment of smart contracts
+- Web3js: "1.2.1"
+  Ethereum Javascript API
 
 # Versions
 - Truffle v5.4.22 <br>
