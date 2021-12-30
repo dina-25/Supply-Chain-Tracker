@@ -117,7 +117,7 @@ contract('SupplyChain', function(accounts) {
         var event = supplyChain.Packed({}, (err, event) => { eventEmitted = true });
 
         // Mark an item as Packed by calling function packItem()
-        await supplyChain.packItem(upc);
+        await supplyChain.packItem(upc, { from: originFarmerID });
 
         // Retrieve the just now saved item from blockchain by calling function fetchItem()
         const resultBufferTwo = await supplyChain.fetchItemBufferTwo.call(upc);
@@ -139,7 +139,7 @@ contract('SupplyChain', function(accounts) {
         var event = supplyChain.ForSale({}, (err, event) => { eventEmitted = true });
 
         // Mark an item as ForSale by calling function sellItem()
-        await supplyChain.sellItem(upc, productPrice);
+        await supplyChain.sellItem(upc, productPrice, { from: originFarmerID });
 
         // Retrieve the just now saved item from blockchain by calling function fetchItem()
         const resultBufferTwo = await supplyChain.fetchItemBufferTwo.call(upc);
