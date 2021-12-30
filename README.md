@@ -94,6 +94,18 @@ truffle migrate --network rinkeby
 - Transaction ID : 0x089609f15d95ded796d7e8f9315513eee03807fdd787a6afe88bbb9d33afca2f <br>
 - Contract address: 0x34f08a380270a16C6895e254616faF260fdA78B0 <br>
 
+# Libraries
+- ganache-cli : "v6.12.2" <br>
+  Local Ethereum blockchain<br>
+- lite-server : "^2.6.1"<br>
+  Web server for local testing<br>
+- truffle-plugin-verify: "^0.5.20"<br>
+  Verify deployed Contracts on Rinkeby Test-network<br>
+- truffle-hdwallet-provider: "^1.0.27" <br>
+  HDWalletProvider for Infura deployment
+- truffle : "5.4.22"<br>
+  Framework for deployment of smart contracts
+
 # Versions
 - Truffle v5.4.22 <br>
 - Solidity >0.5.16 <br>
